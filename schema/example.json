@@ -1,0 +1,53 @@
+{
+  "collections": {
+    "events": {
+      "schema": {
+        "user_id": {
+          "bsonType": "long"
+        },
+        "title": {
+          "bsonType": "string",
+          "maxLength": 64
+        },
+        "tags": {
+          "bsonType": "array",
+          "items": [
+            {
+              "bsonType": "object",
+              "properties": {
+                "id": {
+                  "bsonType": "string"
+                }
+              },
+              "maxItems": 4
+            }
+          ]
+        }
+      },
+      "indexes": {
+        "user_id": {
+          "parts": [
+            {
+              "key": "user_id",
+              "value": 1
+            }
+          ],
+          "unique": false
+        },
+        "user_id_tag": {
+          "parts": [
+            {
+              "key": "user_id",
+              "value": 1
+            },
+            {
+              "key": "tags",
+              "value": 1
+            }
+          ]
+        }
+      },
+      "len": 20000000000
+    }
+  }
+}
